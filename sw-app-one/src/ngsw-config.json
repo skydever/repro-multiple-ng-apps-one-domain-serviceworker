@@ -1,0 +1,21 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "sw-app-one-app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": ["/favicon.ico", "/index.html"],
+        "versionedFiles": ["/*.bundle.css", "/*.bundle.js", "/*.chunk.js"]
+      }
+    },
+    {
+      "name": "sw-app-one-assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": ["/assets/**"]
+      }
+    }
+  ]
+}

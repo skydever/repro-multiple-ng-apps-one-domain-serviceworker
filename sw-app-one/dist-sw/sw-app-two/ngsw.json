@@ -1,0 +1,36 @@
+{
+  "configVersion": 1,
+  "index": "/sw-app-two/index.html",
+  "assetGroups": [
+    {
+      "name": "sw-app-two-app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/sw-app-two/favicon.ico",
+        "/sw-app-two/index.html",
+        "/sw-app-two/inline.facc6267f195a3f46887.bundle.js",
+        "/sw-app-two/main.93d70a49eb4c8173710c.bundle.js",
+        "/sw-app-two/polyfills.61df7d7ec492d95bb0b2.bundle.js",
+        "/sw-app-two/styles.d41d8cd98f00b204e980.bundle.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "sw-app-two-assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/sw-app-two/inline.facc6267f195a3f46887.bundle.js": "5a0e0d81033e8e9947f8e1638853d0ad93dbf4da",
+    "/sw-app-two/main.93d70a49eb4c8173710c.bundle.js": "5a9c16153b9df0d69795d376ace30c99c5d011e8",
+    "/sw-app-two/polyfills.61df7d7ec492d95bb0b2.bundle.js": "ff1216348b48e80e4e810b0f7b785cb69647895a",
+    "/sw-app-two/styles.d41d8cd98f00b204e980.bundle.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "/sw-app-two/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/sw-app-two/index.html": "194becd2ec1f7d0c98b067ec16857f47cedd4480"
+  }
+}

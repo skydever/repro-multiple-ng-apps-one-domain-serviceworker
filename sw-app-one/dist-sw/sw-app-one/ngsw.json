@@ -1,0 +1,36 @@
+{
+  "configVersion": 1,
+  "index": "/sw-app-one/index.html",
+  "assetGroups": [
+    {
+      "name": "sw-app-one-app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/sw-app-one/favicon.ico",
+        "/sw-app-one/index.html",
+        "/sw-app-one/inline.61d8e6e34501d0b371fc.bundle.js",
+        "/sw-app-one/main.3b4296b40437fd253226.bundle.js",
+        "/sw-app-one/polyfills.61df7d7ec492d95bb0b2.bundle.js",
+        "/sw-app-one/styles.d41d8cd98f00b204e980.bundle.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "sw-app-one-assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/sw-app-one/inline.61d8e6e34501d0b371fc.bundle.js": "1737e9810c7852932e72926f67f03858f34c9a9d",
+    "/sw-app-one/main.3b4296b40437fd253226.bundle.js": "f53c663a8ad55284bc4821de71ebf081f80d278b",
+    "/sw-app-one/polyfills.61df7d7ec492d95bb0b2.bundle.js": "ff1216348b48e80e4e810b0f7b785cb69647895a",
+    "/sw-app-one/styles.d41d8cd98f00b204e980.bundle.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "/sw-app-one/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/sw-app-one/index.html": "8428bcda90333764a06040a599d77f06bb788b41"
+  }
+}
