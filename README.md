@@ -27,7 +27,7 @@ This breaks the 1st installed App/ServiceWorker. It is not reachable anymore - y
   * for `sw-app-one` to `sw-app-one\dist-sw\sw-app-one\` (delete old content, copy new content)
   * for `sw-app-two` to `sw-app-one\dist-sw\sw-app-two\` (delete old content, copy new content)
 
-3. start the server: `npm run start-sw`
+3. start the server (at `sw-app-one`): `npm run start-sw`
 
 ## Additional things to consider
 
