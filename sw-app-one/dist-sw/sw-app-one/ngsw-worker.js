@@ -90,14 +90,14 @@ class CacheDatabase {
         if (this.tables.has(name)) {
             this.tables.delete(name);
         }
-        return this.scope.caches.delete(`ngsw:db:${name}`);
+        return this.scope.caches.delete(`ngsw:sw-app-one:db:${name}`);
     }
     list() {
-        return this.scope.caches.keys().then(keys => keys.filter(key => key.startsWith('ngsw:db:')));
+        return this.scope.caches.keys().then(keys => keys.filter(key => key.startsWith('ngsw:sw-app-one:db:')));
     }
     open(name) {
         if (!this.tables.has(name)) {
-            const table = this.scope.caches.open(`ngsw:db:${name}`)
+            const table = this.scope.caches.open(`ngsw:sw-app-one:db:${name}`)
                 .then(cache => new CacheTable(name, cache, this.adapter));
             this.tables.set(name, table);
         }
@@ -1322,7 +1322,7 @@ class AppVersion {
         this.assetGroups = (manifest.assetGroups || []).map(config => {
             // Every asset group has a cache that's prefixed by the manifest hash and the name of the
             // group.
-            const prefix = `ngsw:${this.manifestHash}:assets`;
+            const prefix = `ngsw:sw-app-one:${this.manifestHash}:assets`;
             // Check the caching mode, which determines when resources will be fetched/updated.
             switch (config.installMode) {
                 case 'prefetch':
@@ -1333,7 +1333,7 @@ class AppVersion {
         });
         // Process each `DataGroup` declared in the manifest.
         this.dataGroups = (manifest.dataGroups || [])
-            .map(config => new DataGroup(this.scope, this.adapter, config, this.database, `ngsw:${config.version}:data`));
+            .map(config => new DataGroup(this.scope, this.adapter, config, this.database, `ngsw:sw-app-one:${config.version}:data`));
     }
     get okay() { return this._okay; }
     /**
@@ -1975,9 +1975,9 @@ class Driver {
         try {
             // Read them from the DB simultaneously.
             [manifests, assignments, latest] = await Promise.all([
-                table.read('manifests'),
-                table.read('assignments'),
-                table.read('latest'),
+                table.read('manifestsSwAppOne'),
+                table.read('assignmentsSwAppOne'),
+                table.read('latestSwAppOne'),
             ]);
             // Successfully loaded from saved state. This implies a manifest exists, so
             // the update check needs to happen in the background.
@@ -2003,9 +2003,9 @@ class Driver {
             latest = { latest: hash };
             // Save the initial state to the DB.
             await Promise.all([
-                table.write('manifests', manifests),
-                table.write('assignments', assignments),
-                table.write('latest', latest),
+                table.write('manifestsSwAppOne', manifests),
+                table.write('assignmentsSwAppOne', assignments),
+                table.write('latestSwAppOne', latest),
             ]);
         }
         // At this point, either the state has been loaded successfully, or fresh state
@@ -2163,7 +2163,7 @@ class Driver {
     }
     async deleteAllCaches() {
         await (await this.scope.caches.keys())
-            .filter(key => key.startsWith('ngsw:'))
+            .filter(key => key.startsWith('ngsw:sw-app-one:'))
             .reduce(async (previous, key) => {
             await Promise.all([
                 previous,
@@ -2284,9 +2284,9 @@ class Driver {
         };
         // Synchronize all of these.
         await Promise.all([
-            table.write('manifests', manifests),
-            table.write('assignments', assignments),
-            table.write('latest', latest),
+            table.write('manifestsSwAppOne', manifests),
+            table.write('assignmentsSwAppOne', assignments),
+            table.write('latestSwAppOne', latest),
         ]);
     }
     async cleanupCaches() {
