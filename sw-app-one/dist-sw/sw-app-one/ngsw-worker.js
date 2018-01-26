@@ -1975,9 +1975,9 @@ class Driver {
         try {
             // Read them from the DB simultaneously.
             [manifests, assignments, latest] = await Promise.all([
-                table.read('manifestsSwAppOne'),
-                table.read('assignmentsSwAppOne'),
-                table.read('latestSwAppOne'),
+                table.read('manifests'),
+                table.read('assignments'),
+                table.read('latest'),
             ]);
             // Successfully loaded from saved state. This implies a manifest exists, so
             // the update check needs to happen in the background.
@@ -2003,9 +2003,9 @@ class Driver {
             latest = { latest: hash };
             // Save the initial state to the DB.
             await Promise.all([
-                table.write('manifestsSwAppOne', manifests),
-                table.write('assignmentsSwAppOne', assignments),
-                table.write('latestSwAppOne', latest),
+                table.write('manifests', manifests),
+                table.write('assignments', assignments),
+                table.write('latest', latest),
             ]);
         }
         // At this point, either the state has been loaded successfully, or fresh state
@@ -2284,9 +2284,9 @@ class Driver {
         };
         // Synchronize all of these.
         await Promise.all([
-            table.write('manifestsSwAppOne', manifests),
-            table.write('assignmentsSwAppOne', assignments),
-            table.write('latestSwAppOne', latest),
+            table.write('manifests', manifests),
+            table.write('assignments', assignments),
+            table.write('latest', latest),
         ]);
     }
     async cleanupCaches() {
