@@ -1,6 +1,6 @@
 # Multiple Apps with ServiceWorker on one domain
 
-Reproduction for Angular issue "bug(ServiceWorker): multiple apps with ServiceWorker on one domain".
+Reproduction for Angular issue [#21388](https://github.com/angular/angular/issues/21388): *bug(ServiceWorker): multiple apps with ServiceWorker on one domain*
 
 The installation of a 2nd App/ServiceWorker (with different _baseHref_) purges the `Cache Storage` entries
 for a previously installed App/ServiceWorker, if they are on the same domain.
